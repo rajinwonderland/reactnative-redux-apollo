@@ -1,5 +1,5 @@
 {
-  "name": "reduxApolloBoilerplate",
+  "name": "react-native-redux-apollo",
   "version": "0.0.0",
   "scripts": {
     "commit": "git-cz",
