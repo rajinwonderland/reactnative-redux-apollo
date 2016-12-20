@@ -2,8 +2,6 @@ language: node_js
 node_js:
 - '7'
 
-before_script: ./release.sh
-
 deploy:
   provider: releases
   api_key:
