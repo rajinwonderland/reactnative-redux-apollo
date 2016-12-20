@@ -1,16 +1,19 @@
 language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
 node_js:
-- '7'
-
-deploy:
-  provider: releases
-  api_key:
-    secure: DsHdTNrDuorZjRKfnYPqpAnxRxKGvYKghwZYLjcsk0VYETkMQ/2ejZtLoO0aVbEA9gmQ/8r7pVtWVLrlveFfrw1SgHxo6D8ZNoawAfsp2FAtj6K5BphFTPqwdGHcXBdbuPLC5HeGATlzqTIgwaoULOfMNBYhyBdTDP8zFpAazDKQrLx7Zbd09D2k4ZatQHofAvB3NDbp9hoQd5ed0CCd8gLBeXLJ0Y8Fdeo8ykfQnofjrxOkk39hjXBu1YGgwACjwzv2svs3YFzCy+s9iyHIY0mvUR4gR90LPUWXY7swJ3DAb9i+dxNeD9uwBm5NXZyJiZs0bb5cwhbaaKWUMXTl/eJCoPVIwyx74go9WSz2EDx/y0+RGPoUw7Cdbdspkv1O1ZrAQoCvDAsonekY7by6f8XaWixbmn4bc9bbQKijL6Y8pZxUXhpbCbB00ATLJaqdtXa+QdTjFdH7K0sIyKw9HinQUS0rYf0xNuLPiGEhX7ymskfOYCu/18GmgSDiAQUDxTNVzilfaviNR8YHX42SWgM2O5dSavPljcXyFs/I8ffAE1UHAfg/Kbgi+vlH8DSlhwRKSrPXGw5VbVW2sdE8ln2FdVCqxnPxjnKI7gB2DkJIDPsdH1BYxbCb0lKz/4j7W4+PMvYFVBUTRumLS4cu++3sAwYp81wNXZQ0qSB8MSg=
-  skip_cleanup: true
-  on:
-    repo: RedLeap/reactnative-redux-apollo
-    tags: true
-
+  - '7'
+  - '6'
+  - '4'
+before_script:
+  - npm prune
+script:
+  - npm run test
+after_success:
+  - npm run semantic-release
 branches:
-  only:
-    - master
+  except:
+    - /^v\d+\.\d+\.\d+$/
