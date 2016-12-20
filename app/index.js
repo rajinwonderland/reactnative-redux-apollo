@@ -15,12 +15,7 @@ export default class App extends Component {
     return(
       <View>
         <Text>
-          This is to test CR.
-          Adding another change
-          Another bugfix
-          Fixing #1, #2 failed
-          Fixing #2, #3
-          Fixing #4, #5
+          This is the base component
         </Text>
       </View>
     )
