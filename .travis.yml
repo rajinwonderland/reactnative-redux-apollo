@@ -2,8 +2,7 @@ language: node_js
 node_js:
 - '7'
 
-
-before_deploy: ./before_deploy.sh
+before_script: ./release.sh
 
 deploy:
   provider: releases
