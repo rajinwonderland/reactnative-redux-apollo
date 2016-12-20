@@ -6,7 +6,7 @@
     "commit": "git-cz",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "semantic-release": "semantic-release pre && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "react": "15.4.1",
@@ -28,7 +28,9 @@
     "type": "git",
     "url": "https://github.com/RedLeap/reactnative-redux-apollo.git"
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path":  "node_modules/cz-conventional-changelog"
+    }
   }
 }
