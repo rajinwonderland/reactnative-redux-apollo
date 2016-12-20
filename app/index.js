@@ -20,6 +20,7 @@ export default class App extends Component {
           Another bugfix
           Fixing #1, #2 failed
           Fixing #2, #3
+          Fixing #4, #5
         </Text>
       </View>
     )
