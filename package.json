@@ -1,7 +1,6 @@
 {
   "name": "reduxApolloBoilerplate",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "commit": "git-cz",
     "start": "node node_modules/react-native/local-cli/cli.js start",
