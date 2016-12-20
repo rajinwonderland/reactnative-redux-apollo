@@ -1,12 +1,12 @@
 {
   "name": "reduxApolloBoilerplate",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "commit": "git-cz",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "semantic-release": "semantic-release pre && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "react": "15.4.1",
