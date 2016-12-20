@@ -2,6 +2,9 @@ language: node_js
 node_js:
 - '7'
 
+
+before_deploy: ./before_deploy.sh
+
 deploy:
   provider: releases
   api_key:
@@ -10,3 +13,7 @@ deploy:
   on:
     repo: RedLeap/reactnative-redux-apollo
     tags: true
+
+branches:
+  only:
+    - master
