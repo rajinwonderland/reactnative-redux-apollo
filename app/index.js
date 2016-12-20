@@ -18,7 +18,8 @@ export default class App extends Component {
           This is to test CR.
           Adding another change
           Another bugfix
-          Fixing #1, #2
+          Fixing #1, #2 failed
+          Fixing #2, #3
         </Text>
       </View>
     )
