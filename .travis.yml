@@ -7,8 +7,6 @@ notifications:
 node_js:
   - '7'
   - '6'
-only:
-  - master
 before_script:
   - npm prune
 script:
@@ -16,5 +14,5 @@ script:
 after_success:
   - npm run semantic-release
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only:
+    - master
