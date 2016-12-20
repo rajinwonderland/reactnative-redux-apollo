@@ -17,7 +17,6 @@ export default class App extends Component {
         <Text>
           This is to test CR.
           Adding another change
-          Another Change oops
         </Text>
       </View>
     )
