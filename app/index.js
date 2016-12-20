@@ -16,6 +16,7 @@ export default class App extends Component {
       <View>
         <Text>
           This is the base component
+          another change.
         </Text>
       </View>
     )
