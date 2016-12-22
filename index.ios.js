@@ -35,3 +35,5 @@ const App = () => (
 )
 
 AppRegistry.registerComponent('reduxApolloBoilerplate', () => App);
+
+export default App
