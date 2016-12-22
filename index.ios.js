@@ -8,13 +8,13 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
 } from 'react-native';
-
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
-import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import createLogger from 'redux-logger'
-import reducer from './app/reducers'
-import AppContainer from './app/containers/AppContainer'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware    from 'redux-thunk'
+import createLogger       from 'redux-logger'
+import reducer            from './app/reducers'
+import AppContainer       from './app/containers/AppContainer'
+import { client }         from './app/apollo'
+import { ApolloProvider } from 'react-apollo'
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ })
 
@@ -29,9 +29,9 @@ const store = configStore({}) // no initall state...
 
 // this is the root node of the application.
 const App = () => (
-  <Provider store = { store }>
+  <ApolloProvider store = { store } client = { client } >
     <AppContainer />
-  </Provider>
+  </ApolloProvider>
 )
 
 AppRegistry.registerComponent('reduxApolloBoilerplate', () => App);
