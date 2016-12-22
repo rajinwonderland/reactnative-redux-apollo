@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React from 'react';
 import {
   AppRegistry,
 } from 'react-native';
@@ -15,12 +9,11 @@ import reducer            from './app/reducers'
 import AppContainer       from './app/containers/AppContainer'
 import { client }         from './app/apollo'
 import { ApolloProvider } from 'react-apollo'
-
-const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ })
+const loggerMiddleware = createLogger({ predicate: () => __DEV__ })
 
 function configStore(initState) {
   const enhancer = compose(
-    applyMiddleware(thunkMiddleware, loggerMiddleware)
+    applyMiddleware(thunkMiddleware, loggerMiddleware),
   )
   return createStore(reducer, initState, enhancer)
 }

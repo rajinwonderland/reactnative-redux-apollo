@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { ActionCreators } from '../actions'
 import { bindActionCreators } from 'redux'
 import {
   View,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
 } from 'react-native'
+import ActionCreators from '../actions'
 
 class AppContainer extends Component {
 
   incrementRecipeCount() {
-    this.props.addRecipe();
+    this.props.addRecipe()
   }
 
   render() {
     return (
       <View>
-        <Text style = {{marginTop: 20}}>
-          I'm App Container Recipe Count: { this.props.recipeCount }
+        <Text style={{ marginTop: 20 }}>
+          Im App Container Recipe Count: { this.props.recipeCount }
         </Text>
-        <TouchableHighlight onPress = {() => this.incrementRecipeCount() }>
+        <TouchableHighlight onPress={() => this.incrementRecipeCount()}>
           <Text>Add Recipe</Text>
         </TouchableHighlight>
       </View>
@@ -29,13 +29,18 @@ class AppContainer extends Component {
 
 }
 
+AppContainer.propTypes = {
+  addRecipe: PropTypes.func,
+  recipeCount: PropTypes.number.isRequired,
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
-    recipeCount: state.recipeCount
+    recipeCount: state.recipeCount,
   }
 }
 

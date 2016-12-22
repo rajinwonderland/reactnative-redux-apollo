@@ -1,5 +1,5 @@
-import * as RecipeActions from './recipes'
+import RecipeActions from './recipes'
 
-export const ActionCreators = Object.assign({},
+export default Object.assign({},
   RecipeActions,
 )
