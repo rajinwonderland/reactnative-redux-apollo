@@ -7,47 +7,33 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
 
-export default class reduxApolloBoilerplate extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu!!
-        </Text>
-      </View>
-    );
-  }
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import { Provider } from 'react-redux'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
+import reducer from './app/reducers'
+import AppContainer from './app/containers/AppContainer'
+
+const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ })
+
+function configStore(initState) {
+  const enhancer = compose(
+    applyMiddleware(thunkMiddleware, loggerMiddleware)
+  )
+  return createStore(reducer, initState, enhancer)
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const store = configStore({}) // no initall state...
 
-AppRegistry.registerComponent('reduxApolloBoilerplate', () => reduxApolloBoilerplate);
+// this is the root node of the application.
+const App = () => (
+  <Provider store = { store }>
+    <AppContainer />
+  </Provider>
+)
+
+AppRegistry.registerComponent('reduxApolloBoilerplate', () => App);
+
+export default App
