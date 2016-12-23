@@ -15,3 +15,8 @@ Follow react native instructions to run on ios/android and on the devices themse
 ```
 npm run commit
 ```
+
+##### Unexpected build errors?
+ - Try building using Xcode.
+ - Try running `react-native link`
+ - Try deleting node_modules and reinstalling
